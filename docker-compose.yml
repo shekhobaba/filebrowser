@@ -1,0 +1,14 @@
+version: '3'
+services:
+  file-browser-2:
+    image: filebrowser/filebrowser
+    container_name: file-browser
+    user: '0:0'
+    ports:
+    - 8092:80
+    volumes:
+      - '/root/:/srv'
+      - '/root/repos/filebrowser/filebrowser.db:/database.db'
+    restart: unless-stopped
+    security_opt:
+      'no-new-privileges:true'
